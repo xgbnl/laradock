@@ -1,0 +1,84 @@
+version: "3.9"
+services:
+
+  web:
+    image: ${NGINX}
+    container_name: web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+      - ${NGINX_CONFIG_DIR}:/etc/nginx/conf.d:ro
+    networks:
+      - lnmp-host
+
+  php:
+    image: ${PHP_MASTER}
+    restart: unless-stopped
+    container_name: php
+    volumes:
+      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+    depends_on:
+      - web
+    networks:
+      - lnmp-host
+  
+  php-sub:
+    image: ${PHP_SUB}
+    restart: unless-stopped
+    container_name: php-sub
+    volumes:
+      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+    depends_on:
+      - web
+    networks:
+    - lnmp-host
+
+  database:
+    image: ${MYSQL}
+    container_name: database
+    restart: unless-stopped
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - TZ=${TZ}
+    volumes:
+      - ${MYSQL_DATA_STORE}:/var/lib/mysql:rw
+    command:
+      --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
+      --character-set-server=${CHARACTER_SET_SERVER}
+      --collation-server=${COLLATION_SERVER}
+      --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
+      --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
+      --sql_mode=${SQL_MODE}
+    networks:
+      - lnmp-host
+
+  redis:
+    image: ${REDIS}
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: ["redis-server"]
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=bcrypt
+      - TZ=${TZ}
+    volumes:
+      - ${REDIS_DATA_STORE}:/data
+    networks:
+      - lnmp-host
+
+
+networks:
+  lnmp-host:
