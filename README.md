@@ -1,5 +1,5 @@
 
-# Laradocker
+# 关于 docker-dnmp
 
 ##### 容器
 
@@ -11,5 +11,12 @@
 | php-sub | 7.2    |
 | redis  | 6.2.6  |
 
-##### 此版本长期更新，内置高低版本的php满足维护与新项目的需求。
-##### 此版本为打包版本。直接从本人hub.docker仓库拉取制作好php镜像，免去编译时间。
+**使用方法**
+
+```
+git clone git@github.com:xgbnl/laradocker.git
+
+cd laradocker
+
+sudo docker-compose up -d --build
+```

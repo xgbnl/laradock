@@ -10,8 +10,9 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
       - ${NGINX_CONFIG_DIR}:/etc/nginx/conf.d:ro
+      - ${NGINX_LOG}:/var/log/nginx
     networks:
       - lnmp-host
 
@@ -20,7 +21,8 @@ services:
     restart: unless-stopped
     container_name: php
     volumes:
-      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
+      - ${XDEBUG_LOG}:/var/log:rw
     depends_on:
       - web
     networks:
@@ -31,12 +33,11 @@ services:
     restart: unless-stopped
     container_name: php-sub
     volumes:
-      - ${WEB_DIR}:${CONTAINER_DIR}:rw
+      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
     depends_on:
       - web
     networks:
     - lnmp-host
-
   database:
     image: ${MYSQL}
     container_name: database
@@ -53,6 +54,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${MYSQL_DATA_STORE}:/var/lib/mysql:rw
+      - ${MYSQL_LOG}:/var/log/mysql:rw
     command:
       --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
       --character-set-server=${CHARACTER_SET_SERVER}
@@ -78,7 +80,6 @@ services:
       - ${REDIS_DATA_STORE}:/data
     networks:
       - lnmp-host
-
 
 networks:
   lnmp-host:
