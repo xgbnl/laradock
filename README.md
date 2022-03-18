@@ -13,7 +13,7 @@
 
 **使用方法**
 
-```
+```shell
 git clone git@github.com:xgbnl/laradocker.git
 
 cd laradocker
