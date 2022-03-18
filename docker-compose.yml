@@ -14,7 +14,7 @@ services:
       - ${NGINX_CONFIG_DIR}:/etc/nginx/conf.d:ro
       - ${NGINX_LOG}:/var/log/nginx
     networks:
-      - lnmp-host
+      - dnmp
 
   php:
     image: ${PHP_MASTER}
@@ -22,11 +22,11 @@ services:
     container_name: php
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
-      - ${XDEBUG_LOG}:/var/log:rw
+      - ${XDEBUG_LOG}:/var/log/xdebug:rw
     depends_on:
       - web
     networks:
-      - lnmp-host
+      - dnmp
   
   php-sub:
     image: ${PHP_SUB}
@@ -37,7 +37,7 @@ services:
     depends_on:
       - web
     networks:
-    - lnmp-host
+    - dnmp
   database:
     image: ${MYSQL}
     container_name: database
@@ -63,7 +63,7 @@ services:
       --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
       --sql_mode=${SQL_MODE}
     networks:
-      - lnmp-host
+      - dnmp
 
   redis:
     image: ${REDIS}
@@ -79,7 +79,7 @@ services:
     volumes:
       - ${REDIS_DATA_STORE}:/data
     networks:
-      - lnmp-host
+      - dnmp
 
 networks:
-  lnmp-host:
+  dnmp:
