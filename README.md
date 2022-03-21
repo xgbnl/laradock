@@ -14,9 +14,9 @@
 **使用方法**
 
 ```shell
-git clone git@github.com:xgbnl/docker-dnmp.git
+git clone git@github.com:docker-environment/dnmp.git laradocker
 
-cd docker-dnmp
+cd laradocker
 
 sudo docker-compose up -d --build
 ```

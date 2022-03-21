@@ -1,9 +1,9 @@
 version: "3.9"
 services:
 
-  web:
+  nginx:
     image: ${NGINX}
-    container_name: web
+    container_name: nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -12,35 +12,33 @@ services:
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
       - ${NGINX_CONFIG_DIR}:/etc/nginx/conf.d:ro
-      - ${NGINX_LOG}:/var/log/nginx
     networks:
       - dnmp
 
-  php:
+  php8:
     image: ${PHP_MASTER}
     restart: unless-stopped
-    container_name: php
+    container_name: php8
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
-      - ${XDEBUG_LOG}:/var/log/xdebug:rw
     depends_on:
-      - web
+      - nginx
     networks:
       - dnmp
   
-  php-sub:
+  php7:
     image: ${PHP_SUB}
     restart: unless-stopped
-    container_name: php-sub
+    container_name: php7
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
     depends_on:
-      - web
+      - nginx
     networks:
     - dnmp
-  database:
+  mysql:
     image: ${MYSQL}
-    container_name: database
+    container_name: mysql
     restart: unless-stopped
     expose:
       - "3306"
@@ -54,7 +52,6 @@ services:
       - TZ=${TZ}
     volumes:
       - ${MYSQL_DATA_STORE}:/var/lib/mysql:rw
-      - ${MYSQL_LOG}:/var/log/mysql:rw
     command:
       --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
       --character-set-server=${CHARACTER_SET_SERVER}
@@ -71,13 +68,13 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
-    command: ["redis-server"]
+    command: redis-server /usr/local/etc/redis/redis.conf
     environment:
-      - REDIS_PORT=6379
-      - REDIS_PASSWORD=bcrypt
       - TZ=${TZ}
     volumes:
+      - ${REDIS_CONFIG_DIR}:/usr/local/etc/redis/redis.conf:rw
       - ${REDIS_DATA_STORE}:/data
+      - ${REDIS_LOG_FILE}:/var/log/redis.log:rw
     networks:
       - dnmp
 
