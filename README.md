@@ -5,17 +5,15 @@
 
 | 容器     | 版本     |
 |--------|--------|
-| nginx  | 1.21.6 |
+| nginx  | 1.21.6-alpine |
 | mysql  | 8.0.28 |
 | php    | 8.1.3  |
-| php-sub | 7.2    |
-| redis  | 6.2.6  |
+| redis  | 7.0.0-alpine  |
 
 **使用方法**
 
 ```shell
-git clone git@github.com:docker-environment/dnmp.git laradocker
-
+git clone https://github.com/xgbnl/laradocker.git 
 cd laradocker
 
 sudo docker-compose up -d --build

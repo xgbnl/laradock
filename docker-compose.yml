@@ -15,7 +15,7 @@ services:
     networks:
       - dnmp
 
-  php8:
+  php:
     image: ${PHP_MASTER}
     restart: unless-stopped
     container_name: php8
@@ -26,16 +26,6 @@ services:
     networks:
       - dnmp
   
-  php7:
-    image: ${PHP_SUB}
-    restart: unless-stopped
-    container_name: php7
-    volumes:
-      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
-    depends_on:
-      - nginx
-    networks:
-    - dnmp
   mysql:
     image: ${MYSQL}
     container_name: mysql
