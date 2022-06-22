@@ -16,11 +16,16 @@ services:
       - dnmp
 
   php:
-    image: ${PHP_MASTER}
+    image: ${PHP}
     restart: unless-stopped
-    container_name: php8
+    container_name: php
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
+    user: 1000:1000
+    ports:
+      - "9000:9000"
+      - "9501:9501"
+      - "9502:9502/udp"
     depends_on:
       - nginx
     networks:
