@@ -22,13 +22,13 @@ $ id
 uid=1000(df) gid=1000(df) groups=1000(df),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),119(lxd)
 ```
 
-这个df就是uid和gid
+这个1000就是uid和gid
 
 修改`.env`
 
 ```env
-UID=df
-GID=df
+UID=1000
+GID=1000
 ```
 
 ### **安装**
