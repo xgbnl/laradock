@@ -10,6 +10,27 @@
 | php    | 8.1.7-fpm     |
 | redis  | 7.0.0-alpine  |
 
+### 权限
+docker默认为root运行，但是每次php运行artisan命令后，所有的文件权限归root所有，所以要把容器用户与宿主机用户改为一致，通过以下命令查看:
+
+```shell
+$ id -u
+1000
+$ id -g
+1000
+$ id
+uid=1000(df) gid=1000(df) groups=1000(df),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),119(lxd)
+```
+
+这个df就是uid和gid
+
+修改`.env`
+
+```env
+UID=df
+GID=df
+```
+
 ### **安装**
 
 **提示:** MAC 系统要赋予目录 777 权限才能`build`成功
