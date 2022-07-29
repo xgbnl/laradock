@@ -21,7 +21,6 @@ services:
     container_name: php
     volumes:
       - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
-    user: ${UID}:${GID}
     ports:
       - "9000:9000"
       - "9501:9501"
