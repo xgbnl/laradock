@@ -5,31 +5,10 @@
 
 | 容器     | 版本            |
 |--------|---------------|
-| nginx  | 1.21.6-alpine |
-| mysql  | 8.0.28        |
+| nginx  | 1.23.1-alpine |
+| mysql  | 8.0.30        |
 | php    | 8.1.8-fpm     |
-| redis  | 7.0.0-alpine  |
-
-### 权限
-docker默认为root运行，但是每次php运行artisan命令后，所有的文件权限归root所有，所以要把容器用户与宿主机用户改为一致，通过以下命令查看:
-
-```shell
-$ id -u
-1000
-$ id -g
-1000
-$ id
-uid=1000(df) gid=1000(df) groups=1000(df),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),119(lxd)
-```
-
-这个1000就是uid和gid
-
-修改`.env`
-
-```env
-UID=1000
-GID=1000
-```
+| redis  | 7.0.4-alpine  |
 
 ### **安装**
 
