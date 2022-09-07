@@ -7,7 +7,7 @@
 |--------|---------------|
 | nginx  | 1.23.1-alpine |
 | mysql  | 8.0.30        |
-| php    | 8.1.9-fpm     |
+| php    | 8.1.10-fpm     |
 | redis  | 7.0.4-alpine  |
 
 ### **安装**
@@ -39,8 +39,8 @@ sudo docker-compose up -d --build
 > 内置`composer`,集成常用扩展并且已开启,包括`swoole`,记得ide要安装`swoole-helper`才会有代码提示
 
 - `xdebug`正常使用，端口为`9003`
-- `swoole`监听端口为：9501，和`udp`类型的 9502
-- 使用nginx配置文件时，监听端口记得设为(容器名:端口号) `php:9000`
+- `swoole`开放了监听端口：9501，和`udp`类型的 9502
+- 使用`nginx`配置文件时，监听端口应该这样去监听你的项目:`fastcgi_pass php:9000;`
 
 ### MYSQL
 > 默认root密码:root_password
