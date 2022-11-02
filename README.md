@@ -3,12 +3,12 @@
 
 ##### 容器
 
-| 容器     | 版本            |
-|--------|---------------|
-| nginx  | 1.23.1-alpine |
-| mysql  | 8.0.30        |
-| php    | 8.1.10-fpm     |
-| redis  | 7.0.4-alpine  |
+| 容器列表                     |
+|--------------------------|
+| nginx    `1.23.1-alpine` |  
+| mysql     `8.0.30`       |        
+| php      `8.1.11-fpm`    |     
+| redis    `7.0.4-alpine`  |   
 
 ### **安装**
 
@@ -22,34 +22,40 @@ cd laradocker
 sudo docker-compose up -d --build
 ```
 
-### 目录介绍
-- **config**
-> 存放nginx和redis配置,根据你的喜好你也可以存放php配置
+### 目录结构
+```
+├── README.md                             #说明文档
+├── config                                #容器配置目录
+│   ├── nginx                             #nginx预设配置项
+│   │   ├── default.conf
+│   │   └── laravel.conf
+│   └── redis                             #redis配置目录
+│       └── redis.conf
+├── database                                #数据映射
+│   ├── mysql
+│   └── redis
+│       └── redis.log
+├── docker-compose.yml                      #容器编排核心文件
+└── www                                     #项目目录
+└── .env                                    #配置
+└── .env.example                            #备份配置
+```
 
-- **database**
-> mysql 与 redis 文件存放目录，所有的数据都从容器映射到这个目录里了
+### PHP容器
 
-- **www**
-> 工作目录，所有的 php 项目都存在这个目录中
+容器内部集成了常用扩展,以及composer、swoole
 
-- **.env**
-> 全局配置文件，你可以在里面指定每个容器的版本或增加或修改配置
+- `xdebug`端口:`9003`
+- `swoole`端口：9501，和`udp`类型的 9502
+- `nginx`监听端口:`fastcgi_pass php:9000;`
 
-### PHP
-> 内置`composer`,集成常用扩展并且已开启,包括`swoole`,记得ide要安装`swoole-helper`才会有代码提示
-
-- `xdebug`正常使用，端口为`9003`
-- `swoole`开放了监听端口：9501，和`udp`类型的 9502
-- 使用`nginx`配置文件时，监听端口应该这样去监听你的项目:`fastcgi_pass php:9000;`
-
-### MYSQL
-> 默认root密码:root_password
-
+### mysql容器
+- 默认root密码: `root_password`
 - 访客帐户：  `guest`
 - 访客密码:   `bcrypt`
-- 初始数据库： `laravel`
+- 默认数据库： `laravel`
 
-在Laravel中使用时，env要填写容器名，就像下面这样:
+在使用`Laravel`时，`env`需要如下配置:
 ```dotenv
 DB_CONNECTION=mysql
 DB_HOST=mysql #这里要使用容器名，不要使用ip或localhost
@@ -59,10 +65,8 @@ DB_USERNAME=guest
 DB_PASSWORD=bcrypt
 ```
 
-### REDIS
-> 默认密码：123456
-
-与`mysql`一样，`HOST`要填写容器名
+### redis容器
+- 默认密码：`123456`
 
 ```dotenv
 REDIS_HOST=redis
