@@ -1,14 +1,17 @@
 
 ## docker-dnmp
 
+> 该版本实现了 mysql 主从复制
+
 ##### 容器
 
-| 容器列表                     |
-|--------------------------|
-| nginx    `1.23.2-alpine` |  
-| mysql     `8.0.31`       |        
-| php      `8.1.12-fpm`    |     
-| redis    `7.0.5-alpine`  |   
+| 容器列表                      |
+|---------------------------|
+| nginx    `1.23.2-alpine`  |  
+| mysql-master     `8.0.31` |        
+| mysql-slave     `8.0.31`  |        
+| php      `8.1.12-fpm`     |     
+| redis    `7.0.5-alpine`   |   
 
 ### **安装**
 
@@ -24,21 +27,29 @@ sudo docker-compose up -d --build
 
 ### 目录结构
 ```
-├── README.md                             #说明文档
-├── config                                #容器配置目录
-│   ├── nginx                             #nginx预设配置项
+├── README.md
+├── bootstrap                                           #初始化目录
+│   └── mysql
+│       ├── master                              
+│       │   └── create_sync_user.sh         # 主服务器脚本
+│       └── slave
+│           └── slave.sh                          # 从服务器脚本
+├── config
+│   ├── nginx
 │   │   ├── default.conf
 │   │   └── laravel.conf
-│   └── redis                             #redis配置目录
+│   └── redis
 │       └── redis.conf
-├── database                                #数据映射
+├── database
 │   ├── mysql
+│   │   ├── master
+│   │   └── slave
 │   └── redis
 │       └── redis.log
-├── docker-compose.yml                      #容器编排核心文件
-└── www                                     #项目目录
-└── .env                                    #配置
-└── .env.example                            #备份配置
+├── docker-compose.yml
+└── www
+└── .env
+└── .env.example
 ```
 
 ### PHP容器
