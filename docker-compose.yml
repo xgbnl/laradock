@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.8"
 services:
 
   nginx:
@@ -10,17 +10,17 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
-      - ${NGINX_CONFIG_DIR}:/etc/nginx/conf.d:ro
+      - ${ROOT}:${DOCKER_ROOT}:rw
+      - ${NGINX_CONFIG}:/etc/nginx/conf.d:ro
     networks:
-      - dnmp
+      - production
 
   php:
     image: ${PHP}
     restart: unless-stopped
     container_name: php
     volumes:
-      - ${WORK_PATH}:${CONTAINER_WORK_PATH}:rw
+      - ${ROOT}:${DOCKER_ROOT}:rw
     ports:
       - "9000:9000"
       - "9501:9501"
@@ -28,33 +28,82 @@ services:
     depends_on:
       - nginx
     networks:
-      - dnmp
-  
-  mysql:
+      - production
+
+  mysql-master:
     image: ${MYSQL}
-    container_name: mysql
+    container_name: master
     restart: unless-stopped
-    expose:
-      - "3306"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_USER=${MYSQL_MASTER_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_MASTER_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_MASTER_DATABASE}
+      - MYSQL_USER=${MYSQL_MASTER_USER}
+      - MYSQL_PASSWORD=${MYSQL_MASTER_PASSWORD}
+      - ALLOW_HOST=${MYSQL_MASTER_ALLOW_HOST}
+      - MASTER_SYNC_USER=${MYSQL_SYNC_USER}
+      - MASTER_SYNC_PASSWORD=${MYSQL_SYNC_PASSWORD}
+      - MASTER_ROOT_USER=${MYSQL_MASTER_ROOT_USER}
+      - MASTER_ROOT_PASSWORD=${MYSQL_MASTER_ROOT_PASSWORD}
       - TZ=${TZ}
     volumes:
-      - ${MYSQL_DATA_STORE}:/var/lib/mysql:rw
+      - ${MYSQL_MASTER_LOCAL_STORE}:${DOCKER_LIB_VOLUME}
+      - ${MYSQL_MASTER_SHELL}:${DOCKER_ENTRYPOINT}
     command:
       --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
       --character-set-server=${CHARACTER_SET_SERVER}
       --collation-server=${COLLATION_SERVER}
       --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
       --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES}
       --sql_mode=${SQL_MODE}
+      --server-id=${MYSQL_MASTER_SERVER_ID}
+      --log-bin=${MYSQL_MASTER_LOG_BIN}
+      --sync-binlog=${MYSQL_SYNC_BINLOG}
+      --binlog-format=${MYSQL_BINLOG_FORMAT}
+      --binlog-do-db=${MYSQL_BINLOG_DO_DB}
     networks:
-      - dnmp
+      production:
+        ipv4_address: 10.10.10.11
+
+  mysql-slave:
+    image: ${MYSQL}
+    container_name: slave
+    restart: unless-stopped
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_SLAVE_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_SLAVE_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_SLAVE_DATABASE}
+      - MYSQL_USER=${MYSQL_SLAVE_USER}
+      - MYSQL_PASSWORD=${MYSQL_SLAVE_PASSWORD}
+      - SLAVE_SYNC_USER=${MYSQL_SYNC_USER}
+      - SLAVE_SYNC_PASSWORD=${MYSQL_SYNC_PASSWORD}
+      - MYSQL_MASTER_HOST=${MYSQL_MASTER_HOST}
+      - SLAVE_ROOT_USER=${MYSQL_SLAVE_ROOT_USER}
+      - SLAVE_ROOT_PASSWORD=${MYSQL_SLAVE_ROOT_PASSWORD}
+      - TZ=${TZ}
+    volumes:
+      - ${MYSQL_SLAVE_LOCAL_STORE}:${DOCKER_LIB_VOLUME}
+      - ${MYSQL_SLAVE_SHELL}:${DOCKER_ENTRYPOINT}
+    command:
+      --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
+      --character-set-server=${CHARACTER_SET_SERVER}
+      --collation-server=${COLLATION_SERVER}
+      --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
+      --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES}
+      --sql_mode=${SQL_MODE}
+      --server_id=${MYSQL_SLAVE_SERVER_ID}
+      --log-bin=${MYSQL_SLAVE_LOG_BIN}
+      --relay_log=${MYSQL_RELAY_LOG}
+      --read_only=${MYSQL_READ_ONLY}
+    networks:
+      production:
+        ipv4_address: 10.10.10.12
 
   redis:
     image: ${REDIS}
@@ -66,11 +115,16 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ${REDIS_CONFIG_DIR}:/usr/local/etc/redis/redis.conf:rw
-      - ${REDIS_DATA_STORE}:/data
-      - ${REDIS_LOG_FILE}:/var/log/redis.log:rw
+      - ${REDIS_LOCAL_CONFIG}:${REDIS_DOCKER_CONFIG}
+      - ${REDIS_LOCAL_DATABASE}:${REDIS_DOCKER_DATABASE}
+      - ${REDIS_LOCAL_LOG}:${REDIS_DOCKER_LOG}
     networks:
-      - dnmp
+      - production
 
 networks:
-  dnmp:
+  production:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24

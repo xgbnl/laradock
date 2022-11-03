@@ -1,0 +1,305 @@
+1:C 03 Nov 2022 17:37:54.898 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 17:37:54.900 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 17:37:54.900 # Configuration loaded
+1:M 03 Nov 2022 17:37:54.901 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 17:37:54.920 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 17:37:54.921 # Server initialized
+1:M 03 Nov 2022 17:37:54.921 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 17:37:54.936 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+1:M 03 Nov 2022 17:37:54.948 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 17:37:54.948 * Ready to accept connections
+1:signal-handler (1667468311) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 17:38:31.141 # User requested shutdown...
+1:M 03 Nov 2022 17:38:31.141 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 17:38:31.143 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 17:38:31.155 * DB saved on disk
+1:M 03 Nov 2022 17:38:31.155 * Removing the pid file.
+1:M 03 Nov 2022 17:38:31.155 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 17:39:56.077 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 17:39:56.077 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 17:39:56.077 # Configuration loaded
+1:M 03 Nov 2022 17:39:56.078 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 17:39:56.079 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 17:39:56.079 # Server initialized
+1:M 03 Nov 2022 17:39:56.079 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 17:39:56.079 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 17:39:56.080 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 17:39:56.080 * RDB age 122 seconds
+1:M 03 Nov 2022 17:39:56.080 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 17:39:56.081 * RDB is base AOF
+1:M 03 Nov 2022 17:39:56.081 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 17:39:56.082 * DB loaded from base file appendonly.aof.1.base.rdb: 0.002 seconds
+1:M 03 Nov 2022 17:39:56.082 * DB loaded from append only file: 0.002 seconds
+1:M 03 Nov 2022 17:39:56.082 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 17:39:56.082 * Ready to accept connections
+1:signal-handler (1667468707) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 17:45:07.122 # User requested shutdown...
+1:M 03 Nov 2022 17:45:07.122 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 17:45:07.122 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 17:45:07.130 * DB saved on disk
+1:M 03 Nov 2022 17:45:07.130 * Removing the pid file.
+1:M 03 Nov 2022 17:45:07.130 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 17:45:12.203 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 17:45:12.203 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 17:45:12.203 # Configuration loaded
+1:M 03 Nov 2022 17:45:12.203 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 17:45:12.204 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 17:45:12.204 # Server initialized
+1:M 03 Nov 2022 17:45:12.204 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 17:45:12.205 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 17:45:12.205 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 17:45:12.205 * RDB age 438 seconds
+1:M 03 Nov 2022 17:45:12.205 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 17:45:12.205 * RDB is base AOF
+1:M 03 Nov 2022 17:45:12.205 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 17:45:12.205 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 17:45:12.205 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 17:45:12.205 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 17:45:12.205 * Ready to accept connections
+1:signal-handler (1667468886) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 17:48:06.417 # User requested shutdown...
+1:M 03 Nov 2022 17:48:06.417 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 17:48:06.421 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 17:48:06.430 * DB saved on disk
+1:M 03 Nov 2022 17:48:06.430 * Removing the pid file.
+1:M 03 Nov 2022 17:48:06.430 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 18:15:40.681 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 18:15:40.681 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 18:15:40.681 # Configuration loaded
+1:M 03 Nov 2022 18:15:40.681 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 18:15:40.684 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 18:15:40.684 # Server initialized
+1:M 03 Nov 2022 18:15:40.684 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 18:15:40.684 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 18:15:40.685 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 18:15:40.685 * RDB age 2266 seconds
+1:M 03 Nov 2022 18:15:40.685 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 18:15:40.685 * RDB is base AOF
+1:M 03 Nov 2022 18:15:40.685 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 18:15:40.685 * DB loaded from base file appendonly.aof.1.base.rdb: 0.001 seconds
+1:M 03 Nov 2022 18:15:40.685 * DB loaded from append only file: 0.001 seconds
+1:M 03 Nov 2022 18:15:40.685 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 18:15:40.685 * Ready to accept connections
+1:signal-handler (1667470764) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 18:19:24.754 # User requested shutdown...
+1:M 03 Nov 2022 18:19:24.754 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 18:19:24.754 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 18:19:24.761 * DB saved on disk
+1:M 03 Nov 2022 18:19:24.761 * Removing the pid file.
+1:M 03 Nov 2022 18:19:24.761 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 18:19:29.624 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 18:19:29.624 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 18:19:29.624 # Configuration loaded
+1:M 03 Nov 2022 18:19:29.624 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 18:19:29.625 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 18:19:29.625 # Server initialized
+1:M 03 Nov 2022 18:19:29.625 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 18:19:29.625 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 18:19:29.625 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 18:19:29.625 * RDB age 2495 seconds
+1:M 03 Nov 2022 18:19:29.625 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 18:19:29.625 * RDB is base AOF
+1:M 03 Nov 2022 18:19:29.625 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 18:19:29.625 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 18:19:29.625 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 18:19:29.625 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 18:19:29.625 * Ready to accept connections
+1:signal-handler (1667470859) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 18:20:59.182 # User requested shutdown...
+1:M 03 Nov 2022 18:20:59.182 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 18:20:59.184 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 18:20:59.191 * DB saved on disk
+1:M 03 Nov 2022 18:20:59.191 * Removing the pid file.
+1:M 03 Nov 2022 18:20:59.191 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 18:22:18.654 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 18:22:18.654 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 18:22:18.654 # Configuration loaded
+1:M 03 Nov 2022 18:22:18.654 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 18:22:18.655 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 18:22:18.655 # Server initialized
+1:M 03 Nov 2022 18:22:18.655 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 18:22:18.655 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 18:22:18.656 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 18:22:18.656 * RDB age 2664 seconds
+1:M 03 Nov 2022 18:22:18.656 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 18:22:18.656 * RDB is base AOF
+1:M 03 Nov 2022 18:22:18.656 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 18:22:18.656 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 18:22:18.656 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 18:22:18.656 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 18:22:18.656 * Ready to accept connections
+1:signal-handler (1667474189) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 19:16:29.848 # User requested shutdown...
+1:M 03 Nov 2022 19:16:29.848 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 19:16:29.850 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 19:16:29.863 * DB saved on disk
+1:M 03 Nov 2022 19:16:29.863 * Removing the pid file.
+1:M 03 Nov 2022 19:16:29.863 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 19:38:59.573 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 19:38:59.573 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 19:38:59.573 # Configuration loaded
+1:M 03 Nov 2022 19:38:59.573 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 19:38:59.574 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 19:38:59.575 # Server initialized
+1:M 03 Nov 2022 19:38:59.575 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 19:38:59.577 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 19:38:59.577 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 19:38:59.577 * RDB age 7265 seconds
+1:M 03 Nov 2022 19:38:59.577 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 19:38:59.577 * RDB is base AOF
+1:M 03 Nov 2022 19:38:59.577 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 19:38:59.577 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 19:38:59.577 * DB loaded from append only file: 0.001 seconds
+1:M 03 Nov 2022 19:38:59.577 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 19:38:59.577 * Ready to accept connections
+1:signal-handler (1667475787) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 19:43:07.423 # User requested shutdown...
+1:M 03 Nov 2022 19:43:07.423 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 19:43:07.424 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 19:43:07.431 * DB saved on disk
+1:M 03 Nov 2022 19:43:07.431 * Removing the pid file.
+1:M 03 Nov 2022 19:43:07.431 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 19:43:48.935 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 19:43:48.935 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 19:43:48.935 # Configuration loaded
+1:M 03 Nov 2022 19:43:48.936 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 19:43:48.937 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 19:43:48.937 # Server initialized
+1:M 03 Nov 2022 19:43:48.937 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 19:43:48.937 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 19:43:48.937 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 19:43:48.937 * RDB age 7554 seconds
+1:M 03 Nov 2022 19:43:48.937 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 19:43:48.937 * RDB is base AOF
+1:M 03 Nov 2022 19:43:48.937 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 19:43:48.937 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 19:43:48.937 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 19:43:48.937 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 19:43:48.937 * Ready to accept connections
+1:signal-handler (1667477328) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 20:08:48.409 # User requested shutdown...
+1:M 03 Nov 2022 20:08:48.409 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 20:08:48.410 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 20:08:48.419 * DB saved on disk
+1:M 03 Nov 2022 20:08:48.420 * Removing the pid file.
+1:M 03 Nov 2022 20:08:48.420 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 20:11:51.453 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 20:11:51.453 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 20:11:51.453 # Configuration loaded
+1:M 03 Nov 2022 20:11:51.454 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 20:11:51.456 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 20:11:51.456 # Server initialized
+1:M 03 Nov 2022 20:11:51.456 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 20:11:51.458 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 20:11:51.458 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 20:11:51.458 * RDB age 9237 seconds
+1:M 03 Nov 2022 20:11:51.458 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 20:11:51.459 * RDB is base AOF
+1:M 03 Nov 2022 20:11:51.459 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 20:11:51.459 * DB loaded from base file appendonly.aof.1.base.rdb: 0.001 seconds
+1:M 03 Nov 2022 20:11:51.459 * DB loaded from append only file: 0.001 seconds
+1:M 03 Nov 2022 20:11:51.459 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 20:11:51.459 * Ready to accept connections
+1:signal-handler (1667481132) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 21:12:12.723 # User requested shutdown...
+1:M 03 Nov 2022 21:12:12.725 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 21:12:12.726 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 21:12:12.745 * DB saved on disk
+1:M 03 Nov 2022 21:12:12.746 * Removing the pid file.
+1:M 03 Nov 2022 21:12:12.746 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 21:14:05.917 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 21:14:05.917 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 21:14:05.917 # Configuration loaded
+1:M 03 Nov 2022 21:14:05.918 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 21:14:05.920 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 21:14:05.920 # Server initialized
+1:M 03 Nov 2022 21:14:05.920 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 21:14:05.922 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 21:14:05.922 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 21:14:05.922 * RDB age 12971 seconds
+1:M 03 Nov 2022 21:14:05.922 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 21:14:05.922 * RDB is base AOF
+1:M 03 Nov 2022 21:14:05.922 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 21:14:05.922 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 21:14:05.922 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 21:14:05.922 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 21:14:05.922 * Ready to accept connections
+1:signal-handler (1667482331) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 21:32:11.814 # User requested shutdown...
+1:M 03 Nov 2022 21:32:11.814 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 21:32:11.815 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 21:32:11.821 * DB saved on disk
+1:M 03 Nov 2022 21:32:11.822 * Removing the pid file.
+1:M 03 Nov 2022 21:32:11.823 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 21:32:25.604 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 21:32:25.604 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 21:32:25.604 # Configuration loaded
+1:M 03 Nov 2022 21:32:25.605 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 21:32:25.606 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 21:32:25.606 # Server initialized
+1:M 03 Nov 2022 21:32:25.607 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 21:32:25.609 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 21:32:25.609 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 21:32:25.609 * RDB age 14071 seconds
+1:M 03 Nov 2022 21:32:25.609 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 21:32:25.609 * RDB is base AOF
+1:M 03 Nov 2022 21:32:25.609 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 21:32:25.610 * DB loaded from base file appendonly.aof.1.base.rdb: 0.002 seconds
+1:M 03 Nov 2022 21:32:25.610 * DB loaded from append only file: 0.002 seconds
+1:M 03 Nov 2022 21:32:25.610 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 21:32:25.610 * Ready to accept connections
+1:signal-handler (1667482408) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 21:33:28.322 # User requested shutdown...
+1:M 03 Nov 2022 21:33:28.322 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 21:33:28.324 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 21:33:28.330 * DB saved on disk
+1:M 03 Nov 2022 21:33:28.330 * Removing the pid file.
+1:M 03 Nov 2022 21:33:28.330 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 21:33:46.131 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 21:33:46.132 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 21:33:46.134 # Configuration loaded
+1:M 03 Nov 2022 21:33:46.134 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 21:33:46.135 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 21:33:46.135 # Server initialized
+1:M 03 Nov 2022 21:33:46.135 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 21:33:46.135 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 21:33:46.135 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 21:33:46.135 * RDB age 14152 seconds
+1:M 03 Nov 2022 21:33:46.135 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 21:33:46.135 * RDB is base AOF
+1:M 03 Nov 2022 21:33:46.135 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 21:33:46.136 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 21:33:46.136 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 21:33:46.136 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 21:33:46.136 * Ready to accept connections
+1:signal-handler (1667482679) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 21:37:59.608 # User requested shutdown...
+1:M 03 Nov 2022 21:37:59.608 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 21:37:59.608 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 21:37:59.616 * DB saved on disk
+1:M 03 Nov 2022 21:37:59.616 * Removing the pid file.
+1:M 03 Nov 2022 21:37:59.616 # Redis is now ready to exit, bye bye...
+1:C 03 Nov 2022 21:38:41.766 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Nov 2022 21:38:41.766 # Redis version=7.0.5, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Nov 2022 21:38:41.766 # Configuration loaded
+1:M 03 Nov 2022 21:38:41.767 * monotonic clock: POSIX clock_gettime
+1:M 03 Nov 2022 21:38:41.767 * Running mode=standalone, port=6379.
+1:M 03 Nov 2022 21:38:41.767 # Server initialized
+1:M 03 Nov 2022 21:38:41.768 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 03 Nov 2022 21:38:41.768 * Reading RDB base file on AOF loading...
+1:M 03 Nov 2022 21:38:41.768 * Loading RDB produced by version 7.0.5
+1:M 03 Nov 2022 21:38:41.768 * RDB age 14447 seconds
+1:M 03 Nov 2022 21:38:41.768 * RDB memory usage when created 0.82 Mb
+1:M 03 Nov 2022 21:38:41.768 * RDB is base AOF
+1:M 03 Nov 2022 21:38:41.768 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:M 03 Nov 2022 21:38:41.768 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1:M 03 Nov 2022 21:38:41.768 * DB loaded from append only file: 0.000 seconds
+1:M 03 Nov 2022 21:38:41.768 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 03 Nov 2022 21:38:41.768 * Ready to accept connections
+1:signal-handler (1667482841) Received SIGTERM scheduling shutdown...
+1:M 03 Nov 2022 21:40:41.525 # User requested shutdown...
+1:M 03 Nov 2022 21:40:41.526 * Calling fsync() on the AOF file.
+1:M 03 Nov 2022 21:40:41.528 * Saving the final RDB snapshot before exiting.
+1:M 03 Nov 2022 21:40:41.547 * DB saved on disk
+1:M 03 Nov 2022 21:40:41.548 * Removing the pid file.
+1:M 03 Nov 2022 21:40:41.549 # Redis is now ready to exit, bye bye...
