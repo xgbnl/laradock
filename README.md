@@ -73,3 +73,10 @@ REDIS_HOST=redis
 REDIS_PASSWORD=123456
 REDIS_PORT=6379
 ```
+
+### 关于SSL证书
+在阿里云或其它服务器厂商购买到的SSL证书请存放至 `cert` 目录
+```shell
+config/nginx/cert
+```
+最后替换`laravel.conf`配置文件中的`ssl`文件名
