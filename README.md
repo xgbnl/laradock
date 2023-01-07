@@ -5,10 +5,10 @@
 
 | 容器列表                     |
 |--------------------------|
-| nginx    `1.23.2-alpine` |  
+| nginx    `1.23.3-alpine` |  
 | mysql     `8.0.31`       |        
 | php      `8.2.0-fpm`    |     
-| redis    `7.0.5-alpine`  |   
+| redis    `7.0.7-alpine`  |   
 
 ### **安装**
 
