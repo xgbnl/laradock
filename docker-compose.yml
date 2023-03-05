@@ -11,10 +11,10 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ${APP}:${CONTAINER}:rw
+      - ${APP}:${CONTAINER}:ro
       - ${CONFIG}/nginx:/etc/nginx/conf.d:ro
     networks:
-      - dnmp
+      - web
 
   php:
     image: ${PHP}
@@ -30,7 +30,7 @@ services:
     depends_on:
       - nginx
     networks:
-      - dnmp
+      - web
   
   mysql:
     image: ${MYSQL}
@@ -56,7 +56,7 @@ services:
       --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
       --sql_mode=${SQL_MODE}
     networks:
-      - dnmp
+      - web
 
   redis:
     image: ${REDIS}
@@ -68,11 +68,11 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ${CONFIG}/redis:/usr/local/etc/redis/redis.conf:rw
-      - ${DATABASE}/redis:/data
-      - ${LOGS}/redis/redis.log:/var/log/redis.log:rw
+      - ${CONFIG}/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ${DATABASE}/redis:/data:rw
+      - ${LOGS}/redis/redis.log:/var/log/redis.log:ro
     networks:
-      - dnmp
+      - web
 
 networks:
-  dnmp:
+  web:
