@@ -86,20 +86,27 @@ server {
     ...
 
      # 解析你的Laravel项目,让react项目能够正常访问
-     location /api {
+     location  /api {
         try_files $uri $uri/ /index.php?$query_string;
      }
     
-     # 解析你的React app
+     # 解析你的 React app
      location /react/app {
         alias /var/www/html/react-app/dist/;
         index index.html;
         try_file $uri $uri/ /react/app/index.html;
      }
     
+     # 当部署为 Vue 项目 时
+     location /vue/app/ {
+        alias /var/www/html/web/dist/;
+     }
+     
      # 解析你上传至服务器的文件
-     location ^~ /uploads {
-        alias /var/www/html/laravel/storage/uploads/;
+     # 当访问: https://www.website.com/uploads/images/logo.png
+     # 文件时，nginx会自动解析 uploads 开头的目录
+     location ^~ /uploads/ {
+        alias /var/www/html/laravel/storage/uploads/images/;
      }
 
 }
