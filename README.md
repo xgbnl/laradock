@@ -6,9 +6,9 @@
 | 容器列表                     |
 |--------------------------|
 | nginx    `1.23.3-alpine` |  
-| mysql     `8.0.31`       |        
-| php      `8.2.3-fpm`    |     
-| redis    `7.0.7-alpine`  |   
+| mysql     `8.0.32`       |        
+| php      `8.2.3-fpm`     |     
+| redis    `7.0.9-alpine`  |   
 
 ### **安装**
 
@@ -25,7 +25,8 @@ sudo docker-compose up -d --build
 ### 目录结构
 ```
 ├── README.md                             #说明文档
-├── config                                #容器配置目录
+├── app                                   # 项目存储区
+├── config  #容器配置目录
 │   ├── nginx                             #nginx预设配置项
 │   │   ├── default.conf
 │   │   └── laravel.conf
@@ -34,9 +35,8 @@ sudo docker-compose up -d --build
 ├── database                                #数据映射
 │   ├── mysql
 │   └── redis
-│       └── redis.log
-├── docker-compose.yml                      #容器编排核心文件
-└── www                                     #项目目录
+│── storage                                 # 日志存储
+├── docker-compose.yml                      #容器编排核心文件                                  #项目目录
 └── .env                                    #配置
 └── .env.example                            #备份配置
 ```
@@ -72,6 +72,38 @@ DB_PASSWORD=bcrypt
 REDIS_HOST=redis
 REDIS_PASSWORD=123456
 REDIS_PORT=6379
+```
+
+### 布署问题
+当我的`react`项目与`laravel`项目布署在同一域名下时，该如何配置`nginx`?
+
+编辑如： `laravel-api.conf` 的 `nginx` 配置文件，在`server`区域块加入以下内容，以达到解析目的
+```editorconfig
+
+server {
+    ...
+
+    ...
+
+     # 解析你的Laravel项目,让react项目能够正常访问
+     location /api {
+        try_files $uri $uri/ /index.php?$query_string;
+     }
+    
+     # 解析你的React app
+     location /react/app {
+        alias /var/www/html/react-app/dist/;
+        index index.html;
+        try_file $uri $uri/ /react/app/index.html;
+     }
+    
+     # 解析你上传至服务器的文件
+     location ^~ /uploads {
+        alias /var/www/html/laravel/storage/uploads/;
+     }
+
+}
+
 ```
 
 ### 关于SSL证书
