@@ -23,6 +23,7 @@ services:
     volumes:
       - ${APP}:${CONTAINER}:rw
       - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
+      - ${CONFIG}/php/jobs:/etc/supervisor/conf.d:ro
     ports:
       - "9000:9000"
       - "9501:9501"
