@@ -71,7 +71,7 @@ services:
     volumes:
       - ${CONFIG}/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
       - ${DATABASE}/redis:/data:rw
-      - ${LOGS}/redis/redis.log:/var/log/redis.log:rw
+      - ${STORAGE}/logs/redis/redis.log:/var/log/redis.log:rw
     networks:
       - web
 
