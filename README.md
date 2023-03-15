@@ -10,6 +10,23 @@
 | php      `8.2.3-fpm`     |     
 | redis    `7.0.9-alpine`  |   
 
+### 关于权限
+容器默认用户为 `root:0:0`,它与宿主机共享同一套 `uid`与`gid`内核，导致了每次使用:`php artisan make`命令后，项目目录的权限都会变更为 root:root,每次需要运行 777 权限
+在对其研究后，在打包PHP镜像时，自动为其创建了普通用户: `ubuntu` ，我为它的设置的默认权限为 `1000:1000`,由于每个人的用户不同，可能 `pid`与`uid`也存在一定偏差，所以在运行`docker-compose build` 命令之前，你需要查看你当前宿主机的 `uid`与`gid`:
+```shell
+id -u # 查看当前uid
+
+id -g # 查看当前gid
+```
+将获得的值写入到`.env`文件中(该功能使用`fixuid`来固定 `uid`与`gid`，所以不用担心替换问题)
+
+ **该版本修复了普通用户运行php-fpm时所带来的错误**
+```
+NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+```
+该问题解决方案：注释 `/usr/local/etc/php-fpm.d/www.conf`中的 `www` 与 `group` (本项目已经解决这些问题，你无需担心)
+
 ### **安装**
 
 **提示:** MAC 系统要赋予目录 777 权限才能`build`成功

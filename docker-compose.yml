@@ -20,9 +20,11 @@ services:
     image: ${PHP}
     restart: unless-stopped
     container_name: php
+    user: ${UID}:${GID}
     volumes:
       - ${APP}:${CONTAINER}:rw
       - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
+      - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
       - ${CONFIG}/php/jobs:/etc/supervisor/conf.d:ro
     ports:
       - "9000:9000"
