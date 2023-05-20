@@ -1,7 +1,5 @@
 
-## docker-dnmp
-
-##### 容器
+## About laraveldocker
 
 | 容器列表                     |
 |--------------------------|
@@ -67,9 +65,9 @@ sudo docker-compose up -d --build
 - `nginx`监听端口:`fastcgi_pass php:9000;`
 
 ### mysql容器
-- 默认root密码: `root_password`
-- 访客帐户：  `guest`
-- 访客密码:   `bcrypt`
+- 默认root密码: `password`
+- 默认访客帐户：  `guest`
+- 默认访客密码:   `password`
 - 默认数据库： `laravel`
 
 在使用`Laravel`时，`env`需要如下配置:

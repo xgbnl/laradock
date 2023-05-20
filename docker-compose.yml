@@ -25,7 +25,7 @@ services:
       - ${APP}:${CONTAINER}:rw
       - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
       - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
-      - ${CONFIG}/php/jobs:/etc/supervisor/conf.d:ro
+      - ${SUPERVISOR}:/etc/supervisor/conf.d:rw
     ports:
       - "9000:9000"
       - "9501:9501"
@@ -48,7 +48,7 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - TZ=${TZ}
+      - TZ=${TIMEZONE}
     volumes:
       - ${DATABASE}/mysql:/var/lib/mysql:rw
     command:
