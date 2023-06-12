@@ -33,7 +33,24 @@ services:
       - nginx
     networks:
       - web
-  
+
+  composer:
+    image: ${COMPOSER}
+    container_name: composer
+    environment:
+      - COMPOSER_CACHE_DIR=/tmp/cache
+      - COMPOSER_MEMORY_LIMIT=-1
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - COMPOSER_HOME=/tmp/composer
+    volumes:
+      - ${APP}:/app:rw
+      - ${COMPOSER_ROOT}/cache:/tmp/cache
+      - ${COMPOSER_ROOT}/home:/tmp/composer
+    working_dir: /app
+    command: tail -f /dev/null
+    networks:
+      - web
+
   mysql:
     image: ${MYSQL}
     container_name: mysql

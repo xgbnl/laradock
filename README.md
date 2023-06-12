@@ -64,6 +64,11 @@ sudo docker-compose up -d --build
 - `swoole`端口：9501，和`udp`类型的 9502
 - `nginx`监听端口:`fastcgi_pass php:9000;`
 
+## 如何运行composer容器
+```shell
+docker-compose exec composer composer install --working-dir=/app/test
+```
+
 ### mysql容器
 - 默认root密码: `password`
 - 默认访客帐户：  `guest`
