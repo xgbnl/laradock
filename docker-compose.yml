@@ -35,9 +35,9 @@ services:
       - web
       
   queue:
-    image: ${PHP}
+    image: ${QUEUE}
     restart: unless-stopped
-    container_name: ${QUEUE}
+    container_name: queue
     user: ${UID}:${GID}
     volumes:
       - ${APP}:${CONTAINER}:rw
