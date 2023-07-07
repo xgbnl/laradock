@@ -64,32 +64,22 @@ sudo docker-compose up -d --build
 - `swoole`端口：9501，和`udp`类型的 9502
 - `nginx`监听端口:`fastcgi_pass php:9000;`
 
-## 如何运行composer容器
-```shell
-docker-compose exec composer composer install --working-dir=/app/test
-```
-
 ### mysql容器
-- 默认root密码: `password`
-- 默认访客帐户：  `guest`
-- 默认访客密码:   `password`
-- 默认数据库： `laravel`
 
-在使用`Laravel`时，`env`需要如下配置:
 ```dotenv
 DB_CONNECTION=mysql
-DB_HOST=mysql #这里要使用容器名，不要使用ip或localhost
+DB_HOST=mysql 
 DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=guest
-DB_PASSWORD=bcrypt
+DB_PASSWORD=password
 ```
 
 ### redis容器
-- 默认密码：`123456`
 
 ```dotenv
 REDIS_HOST=redis
+REDIS_USERNAME=default
 REDIS_PASSWORD=123456
 REDIS_PORT=6379
 ```
