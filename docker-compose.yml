@@ -9,7 +9,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - TZ=${TZ}
+      - TZ=${TIMEZONE}
     volumes:
       - ${APP}:${CONTAINER}:ro
       - ${CONFIG}/nginx:/etc/nginx/conf.d:ro
@@ -82,7 +82,7 @@ services:
       - "6379:6379"
     command: redis-server /usr/local/etc/redis/redis.conf
     environment:
-      - TZ=${TZ}
+      - TZ=${TIMEZONE}
     volumes:
       - ${CONFIG}/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
       - ${DATABASE}/redis:/data:rw
