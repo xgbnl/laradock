@@ -1,5 +1,5 @@
 
-## About laraveldocker
+## Laradocker
 
 > 基于 `Laravel` 的开发或布署环境
 
@@ -28,7 +28,7 @@
             └── redis.log
 ``` 
 
-#### 下载&&构建
+#### 构建容器
 
 ```shell
 $ git clone https://github.com/xgbnl/laradocker.git 
@@ -38,7 +38,12 @@ $ cd laradocker
 $ sudo docker-compose up -d --build
 ```
 
-####  配置数据库
+#### 更新容器
+```shell
+$ sudo docker-compose up -d --build php
+```
+
+#### `Laravel`项目连接数据库与缓存
 
 ```dotenv
 # MYSQL
@@ -56,7 +61,8 @@ REDIS_PASSWORD=123456
 REDIS_PORT=6379
 ```
 
-#### 布署
+#### 单机式布署
+> 该布署方式适用于 `Laravel` 项目与前端项目使用同一域名时
 
 ```editorconfig
 
