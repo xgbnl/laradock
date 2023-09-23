@@ -43,6 +43,7 @@ services:
       - ${APP}:${CONTAINER}:rw
       - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
       - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+      - ${CONFIG}/queue:/etc/supervisor/conf.d:ro
     depends_on:
       - nginx
     networks:
