@@ -15,7 +15,6 @@
 │   ├── php
 │   │   ├── docker-upload.ini
 │   │   └── www.conf
-│   ├── queue
 │   └── redis
 │       └── redis.conf
 ├── database
