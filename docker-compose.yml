@@ -27,8 +27,6 @@ services:
       - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
     ports:
       - "9000:9000"
-      - "9501:9501"
-      - "9502:9502/udp"
     depends_on:
       - nginx
     networks:
