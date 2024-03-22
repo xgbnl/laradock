@@ -1,7 +1,7 @@
 
-## Laradocker
+## Laradock
 
-> 基于 `Laravel` 的开发或布署环境
+> Laravel 开发环境
 
 #### 目录结构
 ```
@@ -30,9 +30,9 @@
 #### 构建容器
 
 ```shell
-$ git clone https://github.com/xgbnl/laradocker.git 
+$ git clone https://github.com/xgbnl/laradock.git 
 
-$ cd laradocker
+$ cd laradock
 
 $ sudo docker-compose up -d --build
 ```
@@ -42,19 +42,19 @@ $ sudo docker-compose up -d --build
 $ sudo docker-compose up -d --build php
 ```
 
-#### `Laravel`项目连接数据库与缓存
+#### 项目配置SQL与Redis
 
 ```dotenv
 # MYSQL
 DB_CONNECTION=mysql
-DB_HOST=mysql 
+DB_HOST=mysql #指定Mysql容器名称
 DB_PORT=3306
 DB_DATABASE=laravel
-DB_USERNAME=guest
+DB_USERNAME=laravel
 DB_PASSWORD=password
 
 # Redis
-REDIS_HOST=redis
+REDIS_HOST=redis #指定Redis容器名称
 REDIS_USERNAME=default
 REDIS_PASSWORD=123456
 REDIS_PORT=6379
@@ -104,10 +104,3 @@ server {
 config/nginx/cert
 ```
 最后替换`laravel.conf`配置文件中的`ssl`文件名
-
- **修复了普通用户运行php-fpm时所带来的错误**
-```
-NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
-NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
-```
-该问题解决方案：注释 `/usr/local/etc/php-fpm.d/www.conf`中的 `www` 与 `group` (本项目已经解决这些问题，你无需担心)
