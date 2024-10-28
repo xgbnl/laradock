@@ -49,7 +49,7 @@ services:
     volumes:
       - ${DATABASE}/mysql:/var/lib/mysql:rw
     command:
-      --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES} 
       --character-set-server=${CHARACTER_SET_SERVER}
       --collation-server=${COLLATION_SERVER}
       --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
