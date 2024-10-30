@@ -104,3 +104,6 @@ server {
 config/nginx/cert
 ```
 最后替换`laravel.conf`配置文件中的`ssl`文件名
+
+#### Thinkphp
+新增Thinkphp和Fastadmin老项目支持，如使用将`docker-compose-dev.yml`替换为`docker-compose.yml`文件、`.env.dev`替换为`.env`即可.

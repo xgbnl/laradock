@@ -1,0 +1,118 @@
+services:
+
+  nginx:
+    image: ${NGINX}
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${APP}:${CONTAINER}:rw
+      - ${CONFIG}/nginx:/etc/nginx/conf.d:ro
+    networks:
+      - web
+
+  php:
+    image: ${PHP}
+    restart: unless-stopped
+    container_name: php
+    user: ${UID}:${GID}
+    volumes:
+      - ${APP}:${CONTAINER}:rw
+      - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
+      - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+    ports:
+      - "9000:9000"
+    depends_on:
+      - nginx
+    networks:
+      - web
+  
+  php_seven:
+    image: ${PHP_SEVEN}
+    restart: unless-stopped
+    container_name: php_seven
+    user: ${UID}:${GID}
+    volumes:
+      - ${APP}:${CONTAINER}:rw
+      - ${CONFIG}/php/docker-upload.ini:/usr/local/etc/php/conf.d/docker-upload.ini:ro
+      - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+    ports:
+      - "9001:9000"
+    depends_on:
+      - nginx
+    networks:
+      - web
+      
+  mysql:
+    image: ${MYSQL}
+    container_name: mysql
+    restart: unless-stopped
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${DATABASE}/mysql-8-4:/var/lib/mysql:rw
+    command:
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES}
+      --character-set-server=${CHARACTER_SET_SERVER}
+      --collation-server=${COLLATION_SERVER}
+      --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
+      --default-storage-engine=${DEFAULT_STORAGE_ENGINE}
+      --sql_mode=${SQL_MODE}
+    networks:
+      - web
+
+  mysql_five:
+    image: ${MYSQL_FIVE}
+    container_name: mysql_five
+    restart: unless-stopped
+    expose:
+      - "3306"
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${DATABASE}/mysql-5-7:/var/lib/mysql:rw
+    command:
+      --default-authentication-plugin=${DEFAULT_AUTHENTICATION_PLUGIN}
+      --character-set-server=${CHARACTER_SET_SERVER}
+      --collation-server=${COLLATION_SERVER}
+      --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES}
+    networks:
+      - web
+
+  redis:
+    image: ${REDIS}
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${CONFIG}/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ${DATABASE}/redis:/data:rw
+      - ${STORAGE}/logs/redis/redis.log:/var/log/redis.log:rw
+    networks:
+      - web
+
+networks:
+  web:
