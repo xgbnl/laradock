@@ -27,11 +27,12 @@ services:
       - ${CONFIG}/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
     ports:
       - "9000:9000"
+      - "8000:8000"
     depends_on:
       - nginx
     networks:
       - web
-      
+
   mysql:
     image: ${MYSQL}
     container_name: mysql
@@ -49,7 +50,7 @@ services:
     volumes:
       - ${DATABASE}/mysql:/var/lib/mysql:rw
     command:
-      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES} 
+      --lower_case_table_names=${LOWER_CASE_TABLE_NAMES}
       --character-set-server=${CHARACTER_SET_SERVER}
       --collation-server=${COLLATION_SERVER}
       --explicit_defaults_for_timestamp=${EXPLICIT_DEFAULTS_FOR_TIMESTAMP}
